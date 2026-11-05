@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.myenv/
+venv/
+.env
+
+# IDE
+.vscode/
+
+# Large dataset and redundant embeddings
+fashion_images/
+embeddings/
+*.npy
+
+# OS files
+.DS_Store
+Thumbs.db
