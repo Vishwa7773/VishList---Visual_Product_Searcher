@@ -23,7 +23,7 @@ def home():
 
 
 @app.post("/search")
-def find_products(file: UploadFile=File(...),k:int = 5):
+async def find_products(file: UploadFile=File(...),k:int = 5):
 
     if file.content_type not in ["image/jpeg","image/jpg"]:
         raise HTTPException(400,detail="Please upload .jpeg/.jpg image")
@@ -31,9 +31,12 @@ def find_products(file: UploadFile=File(...),k:int = 5):
     temp_path=None
 
     try:
+        image_bytes=await file.read()
+        if not image_bytes:
+            raise HTTPException(status_code=500,detail='Uploaded file is empty')
         with tempfile.NamedTemporaryFile(delete=False,suffix=".jpg") as temp_file:
             temp_path=temp_file.name
-            temp_file.write(file.file.read())
+            temp_file.write(image_bytes)
 
             results=searcher.search(temp_path,k)
 

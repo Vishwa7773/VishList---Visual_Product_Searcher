@@ -11,7 +11,7 @@ st.set_page_config(page_title='Visual Product Searcch - VishList',
                    layout="wide",
                    initial_sidebar_state='auto')
 
-st.title('VishList',text_alignment='center',width='stretch')
+st.title('VishList',width='stretch')
 st.write(
     "Vishlist is a Visual Product Searcher.",
     "Upload the image of the product you want and see VishList Feth similar product from our Data Base"
