@@ -5,7 +5,7 @@ from io import BytesIO
 import os
 
 
-API_URL='http://127.0.0.1:8000/search'
+API_URL='https://vishlist-api.onrender.com/search'
 
 st.set_page_config(page_title='Visual Product Searcch - VishList',
                    layout="wide",
