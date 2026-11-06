@@ -13,8 +13,8 @@ INDEX_PATH = BASE_DIR / "models" / "Fashion_products.index"
 DATA_PATH = BASE_DIR / "data" / "fashion_data.csv"
 
 
-searcher=Image_Searcher(index_path=r"C:\Users\HP\OneDrive\Desktop\Study\Projects\Visual_Product_Search\models\Fashion_products.index",
-                         data_path=r"C:\Users\HP\OneDrive\Desktop\Study\Projects\Visual_Product_Search\data\fashion_data.csv")
+searcher=Image_Searcher(index_path=str(INDEX_PATH),
+                         data_path=str(DATA_PATH))
 app=FastAPI(title="Visual Product Search")
 
 @app.get("/")
