@@ -26,6 +26,9 @@ k=st.slider(label='Number of Similar Product',
 
 if uploaded_file is not None:
     image_bytes=uploaded_file.getvalue()
+    if not image_bytes:
+        st.error("The uploaded image is empty. Please select another image.")
+        st.stop()
     st.subheader('Your uploaded image!!!')
     st.image(image_bytes,width=250)
 
