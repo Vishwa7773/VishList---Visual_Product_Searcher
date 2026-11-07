@@ -14,7 +14,8 @@ st.set_page_config(page_title='Visual Product Searcch - VishList',
 st.title('VishList')
 st.write(
     "Vishlist is a Visual Product Searcher.",
-    "Upload the image of the product you want and see VishList fetch similar product from our Data Base"
+    "Upload the image of the product you want and see VishList fetch similar product from our Data Base.",
+    "The Images are blury due to the data used"
 )
 
 uploaded_file=st.file_uploader(label='Upload your product image',
