@@ -37,8 +37,11 @@ async def find_products(file: UploadFile=File(...),k:int = 5):
         with tempfile.NamedTemporaryFile(delete=False,suffix=".jpg") as temp_file:
             temp_path=temp_file.name
             temp_file.write(image_bytes)
+            print("Temporary image path:", temp_path)
+            print("Temporary image exists:", os.path.exists(temp_path))
+            print("Temporary image size:", os.path.getsize(temp_path))
 
-            results=searcher.search(temp_path,k)
+            results = searcher.search(temp_path, k)
 
         return {"FileName":file.filename,
                 "Result_Count":len(results),

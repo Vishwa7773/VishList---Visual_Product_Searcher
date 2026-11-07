@@ -16,6 +16,10 @@ class Embedder:
     def embedd(self,path):
 
         image=tf.io.read_file(path)
+        tf.debugging.assert_positive(
+            tf.strings.length(image),
+            message="The image file is empty"
+        )
         image=tf.image.decode_jpeg(image,channels=3)
         image=tf.image.resize(image,(224,224))
 
