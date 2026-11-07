@@ -37,9 +37,16 @@ async def find_products(file: UploadFile=File(...),k:int = 5):
         print("Received bytes:", len(image_bytes))
         if not image_bytes:
             raise HTTPException(status_code=500,detail='Uploaded file is empty')
+        
         with tempfile.NamedTemporaryFile(delete=False,suffix=".jpg") as temp_file:
             temp_path=temp_file.name
-            temp_file.write(image_bytes)
+            bytes_written=temp_file.write(image_bytes)
+            temp_file.flush()
+
+            print("Bytes received:", len(image_bytes))
+            print("Bytes written:", bytes_written)
+
+            print("File size after closing:", os.path.getsize(temp_path))
             print("Temporary image path:", temp_path)
             print("Temporary image exists:", os.path.exists(temp_path))
             print("Temporary image size:", os.path.getsize(temp_path))
