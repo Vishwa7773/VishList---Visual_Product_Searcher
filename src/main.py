@@ -10,7 +10,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 INDEX_PATH = BASE_DIR / "models" / "Fashion_products.index"
-DATA_PATH = BASE_DIR / "data" / "fashion_data.csv"
+DATA_PATH = BASE_DIR / "data" / "fashion_data_5000.csv"
 
 
 searcher=Image_Searcher(index_path=str(INDEX_PATH),
