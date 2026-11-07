@@ -89,8 +89,12 @@ if uploaded_file is not None:
                                     product.get("path", "")
                                 )
 
-                                if image_path and os.path.isfile(image_path):
-                                    st.image(image_path,use_container_width=True)
+                                if image_path :
+                                    try:
+                                        st.image(image_path,use_container_width=True)
+                                    except Exception as  e :
+                                        st.warning("Image URL was not available!")
+                                        st.caption(str(e))
                                 else:
                                     st.info("Product image is not available"
                                             "on the device")
